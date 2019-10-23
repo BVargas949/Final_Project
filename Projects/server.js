@@ -1,39 +1,76 @@
+  
+var express = require('express');
 const fetch = require('node-fetch');
-const express = require('express')
-const PORT = 8080;
-const app = express();
+const path = require('path');
+var app = express();
+const port = 8080;
 
-const get_data = async (url, templateNameString, res) => {
-    try {
-        const response = await fetch(url);
-        const json = await response.json();
+app.set('view engine', 'pug');
+app.set("views", path.join(__dirname,"views"));
+app.use("/static", express.static(path.join(__dirname, "public")));
 
-        res.render(templateNameString, {
-            people: json.data
-        });
-        // End expressJS code
 
-        console.timeEnd("Request time");
-    } catch (error) {
-        console.log(error);
-    }
-};
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        exampleVariable: 'Hello World'
+
+app.get('/', (req, res) => {  
+
+    fetch('https://api.github.com/users/bvargas949')
+    .then(res => res.json())
+    .then(
+      (json) => {
+        console.log(json)
+      res.render('index', { 
+          data: info,
+          page: json
+        })
+      })
     });
-});
 
-app.get('/page', (req, res) => {
-    get_data("https://reqres.in/api/users?page=2", "people", res)
-});
+    app.get('/page', (req, res) => {
+        res.render('page', 
+        { 
+          
+        });
+      });
 
-app.get('/pageT', (req, res) => {
-    res.render('about');
-});
+      app.get('/pageT', (req, res) => {
+        res.render('pageT', 
+        { 
+         
+        });
+      });
 
+      app.get('/pageth', (req, res) => {
+        res.render('pageth', 
+        { 
+          
+        });
+      });
 
-let listener = app.listen(PORT || process.env.PORT, () => {
-    console.log('Your app is listening on port ' + listener.address().port);
-});
+      app.get('/pagef', (req, res) => {
+        res.render('pagef', 
+        { 
+         
+        });
+      });
+
+      var info = {
+        "basics": {
+          "name": "Bryan Vargas",
+          "label": "Programmer",
+          "picture": "",
+          "email": "bvargas949@west-mec.org",
+          "phone": "(480) 849-2025",
+          "summary": "help",
+          "location": {
+            "address": "16004 North Nash ST.",
+            "postalCode": "85378",
+            "city": "surprise",
+            "countryCode": "US",
+            "region": "Arizona"
+          }
+        }
+        };
+    const server = app.listen(port, () =>{
+        console.log(`Express running - PORT ${server.address().port}`)
+      })
