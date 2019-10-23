@@ -1,7 +1,7 @@
 html
     head
         link(rel="stylesheet", href="/static/m.css")
-        title Kill Me
+        title B.V
     body
     nav
         ul
@@ -18,6 +18,22 @@ html
     article
         h1 work
 
-        p help
+        p info please load
 
-        h2 All I've got are words 
+        h4= `${data.basics.name}, (${data.basics.region})`
+        img(src=`${data.basics.picture}`)
+        p please
+        h4= `Find me at ${data.basics.email}`
+        h5= `calls: ${data.basics.phone}`
+
+
+            .trial
+        h3 node fetch attempt
+        p Find me on github
+            a(href=`${github.html_url}`)  https://github.com/BVargas949
+
+
+
+         
+
+

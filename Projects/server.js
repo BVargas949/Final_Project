@@ -21,10 +21,29 @@ app.get('/', (req, res) => {
         console.log(json)
       res.render('index', { 
           data: info,
-          page: json
+          github: json
         })
       })
     });
+
+    var info = {
+        "basics": {
+          "name": "Bryan Vargas",
+          "label": "none",
+          "picture": "",
+          "email": "bvargas949@west-mec.org",
+          "phone": "(480) 849-2025",
+          "summary": "help",
+          "location": {
+            "address": "16004 North Nash ST.",
+            "postalCode": "85378",
+            "city": "surprise",
+            "countryCode": "US",
+            "region": "Arizona"
+          }
+        }
+        };
+
 
     app.get('/page', (req, res) => {
         res.render('page', 
@@ -54,23 +73,7 @@ app.get('/', (req, res) => {
         });
       });
 
-      var info = {
-        "basics": {
-          "name": "Bryan Vargas",
-          "label": "Programmer",
-          "picture": "",
-          "email": "bvargas949@west-mec.org",
-          "phone": "(480) 849-2025",
-          "summary": "help",
-          "location": {
-            "address": "16004 North Nash ST.",
-            "postalCode": "85378",
-            "city": "surprise",
-            "countryCode": "US",
-            "region": "Arizona"
-          }
-        }
-        };
+
     const server = app.listen(port, () =>{
         console.log(`Express running - PORT ${server.address().port}`)
       })
