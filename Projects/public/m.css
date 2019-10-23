@@ -9,8 +9,6 @@ nav ul {
     background-color: white;
     position: fixed;
     width: 100%;
-    box-shadow: 0px 2px 0px 0px;
-
 }
 
 nav ul li {
@@ -20,10 +18,9 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color: black;
+    color: rgb(162, 227, 250);
     text-align: center;
     padding: 14px 16px;
-    font-size: 20px;
     text-decoration: none;
     transition: 0.4s;
 }
