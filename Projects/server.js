@@ -45,31 +45,31 @@ app.get('/', (req, res) => {
         };
 
 
-    app.get('/page', (req, res) => {
-        res.render('page', 
+    app.get('/page0', (req, res) => {
+        res.render('page0', 
         { 
-          
+          data: info
         });
       });
 
       app.get('/pageT', (req, res) => {
         res.render('pageT', 
         { 
-         
+          data: info
         });
       });
 
       app.get('/pageth', (req, res) => {
         res.render('pageth', 
         { 
-          
+          data: info
         });
       });
 
-      app.get('/pagef', (req, res) => {
-        res.render('pagef', 
+      app.get('/page0', (req, res) => {
+        res.render('page0', 
         { 
-         
+          data: info
         });
       });
 
