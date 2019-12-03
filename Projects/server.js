@@ -52,22 +52,23 @@ app.get('/', (req, res) => {
         });
       });
 
-      app.get('/pageT', (req, res) => {
-        res.render('pageT', 
+      app.get('/page1', (req, res) => {
+        res.render('page1', 
         { 
           data: info
         });
       });
 
-      app.get('/pageth', (req, res) => {
-        res.render('pageth', 
+      app.get('/page2', (req, res) => {
+        res.render('page2', 
         { 
           data: info
         });
       });
 
-      app.get('/page0', (req, res) => {
-        res.render('page0', 
+
+      app.get('/page3', (req, res) => {
+        res.render('page3', 
         { 
           data: info
         });
