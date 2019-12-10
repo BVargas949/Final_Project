@@ -14,61 +14,54 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res) => {  
 
-    fetch('https://api.github.com/users/bvargas949')
+    fetch('https://swapi.co/api/planets/3/')
     .then(res => res.json())
     .then(
       (json) => {
         console.log(json)
       res.render('index', { 
-          data: info,
-          github: json
+          data: planet,
+          planet: json
         })
       })
     });
 
-    var info = {
-        "basics": {
-          "name": "Bryan Vargas",
-          "label": "none",
-          "picture": "",
-          "email": "bvargas949@west-mec.org",
-          "phone": "(480) 849-2025",
-          "summary": "help",
-          "location": {
-            "address": "16004 North Nash ST.",
-            "postalCode": "85378",
-            "city": "surprise",
-            "countryCode": "US",
-            "region": "Arizona"
-          }
-        }
-        };
-
+    var planet = {
+      "name": "Naboo",
+      "rotation_period": "26",
+      "orbital_period": "312",
+      "diameter": "12120",
+      "climate": "temperate",
+      "gravity": "1 standard",
+      "terrain": "grassy hills, swamps, forests, mountains",
+      "surface_water": "12",
+      "population": "4500000000",
+      "residents": [
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/21/",
+        "https://swapi.co/api/people/36/",
+        "https://swapi.co/api/people/37/",
+        "https://swapi.co/api/people/38/",
+        "https://swapi.co/api/people/39/",
+        "https://swapi.co/api/people/42/",
+        "https://swapi.co/api/people/60/",
+        "https://swapi.co/api/people/61/",
+        "https://swapi.co/api/people/66/",
+        "https://swapi.co/api/people/35/"
+      ],
+      "films": [
+        "https://swapi.co/api/films/5/",
+        "https://swapi.co/api/films/4/",
+        "https://swapi.co/api/films/6/",
+        "https://swapi.co/api/films/3/"
+      ],
+      "created": "2014-12-10T11:52:31.066000Z",
+      "edited": "2014-12-20T20:58:18.430000Z",
+      "url": "https://swapi.co/api/planets/8/"
+    }
 
     app.get('/page0', (req, res) => {
         res.render('page0', 
-        { 
-          data: info
-        });
-      });
-
-      app.get('/page1', (req, res) => {
-        res.render('page1', 
-        { 
-          data: info
-        });
-      });
-
-      app.get('/page2', (req, res) => {
-        res.render('page2', 
-        { 
-          data: info
-        });
-      });
-
-
-      app.get('/page3', (req, res) => {
-        res.render('page3', 
         { 
           data: info
         });
